@@ -28,9 +28,9 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(120, 40, 200, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(40, 90, 200, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(200, 40, 120, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 50%);
   animation: gradient-shift 20s ease infinite;
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .highlight {
-  background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
+  background: linear-gradient(135deg, #dc2626 0%, #f97316 50%, #fbbf24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -101,13 +101,13 @@ body {
   padding: 0.75rem 1.5rem;
   margin-bottom: 2rem;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  border: 1px solid rgba(220, 38, 38, 0.3);
   border-radius: 50px;
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
   font-weight: 500;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
 }
 
 .form-container {
@@ -141,8 +141,8 @@ body {
 
 .email-input:focus {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 .email-input:disabled {
@@ -156,7 +156,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
   border: none;
   border-radius: 12px;
   color: #fff;
@@ -170,7 +170,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  background: linear-gradient(135deg, #ef4444 0%, #fb923c 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
