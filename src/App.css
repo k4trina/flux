@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
 
 * {
   margin: 0;
@@ -20,99 +20,44 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: #000;
-  overflow: hidden;
-}
-
-.background-gradient {
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
-  animation: gradient-shift 20s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.grain {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-  pointer-events: none;
-  opacity: 0.4;
+  background: #fafafa;
 }
 
 .content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 720px;
   width: 90%;
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
 }
 
 .headline {
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  color: #fff;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #000;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .highlight {
-  background: linear-gradient(135deg, #06b6d4 0%, #fbbf24 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  position: relative;
-  display: inline-block;
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
+  color: #06b6d4;
+  font-weight: 700;
 }
 
 .subheading {
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: #525252;
+  margin-bottom: 3rem;
   font-weight: 400;
   line-height: 1.6;
 }
 
-.incentive-badge {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  margin-bottom: 2rem;
-  background: rgba(6, 182, 212, 0.08);
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  border-radius: 50px;
-  color: rgba(251, 191, 36, 0.95);
-  font-size: 0.95rem;
-  font-weight: 500;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
-}
-
 .form-container {
   margin: 0 auto 2rem;
-  max-width: 400px;
+  max-width: 420px;
 }
 
 .waitlist-form {
@@ -126,22 +71,20 @@ body {
   padding: 1rem 1.25rem;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  color: #fff;
+  background: #fff;
+  border: 2px solid #e5e5e5;
+  border-radius: 8px;
+  color: #000;
   outline: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
 }
 
 .email-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: #a3a3a3;
 }
 
 .email-input:focus {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(6, 182, 212, 0.5);
+  border-color: #06b6d4;
   box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
 }
 
@@ -156,122 +99,74 @@ body {
   font-size: 1rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0891b2 0%, #f59e0b 100%);
+  background: #000;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   color: #fff;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
-  overflow: hidden;
 }
 
-.submit-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #06b6d4 0%, #fbbf24 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.submit-button:hover::before {
-  opacity: 1;
+.submit-button:hover {
+  background: #06b6d4;
 }
 
 .submit-button:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
-}
-
-.submit-button span {
-  position: relative;
-  z-index: 1;
 }
 
 .success-message,
 .error-message {
   text-align: center;
   padding: 2rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.success-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #0891b2 0%, #14b8a6 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: #fff;
-  margin: 0 auto 1rem;
-  animation: success-pop 0.5s ease;
-}
-
-@keyframes success-pop {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+  border-radius: 8px;
+  background: #fff;
+  border: 2px solid #e5e5e5;
 }
 
 .success-message p {
-  color: #fff;
-  font-size: 1.25rem;
+  color: #000;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.success-subtext {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.95rem !important;
-  font-weight: 400 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1.5rem;
 }
 
 .error-message p {
-  color: #f87171;
+  color: #ef4444;
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
 
 .back-button {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.7);
+  border: 2px solid #e5e5e5;
+  color: #525252;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .back-button:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: #06b6d4;
+  color: #06b6d4;
 }
 
 .footer-text {
-  color: rgba(255, 255, 255, 0.4);
+  color: #a3a3a3;
   font-size: 0.875rem;
   margin-top: 2rem;
+  font-weight: 500;
 }
 
 @media (max-width: 640px) {
   .content {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .headline {
