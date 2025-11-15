@@ -1,35 +1,173 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('Oops! Something went wrong, please try again');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Rate limiting check
+    const time = new Date();
+    const timestamp = time.valueOf();
+    const previousTimestamp = localStorage.getItem('loops-form-timestamp');
+
+    if (previousTimestamp && Number(previousTimestamp) + 60000 > timestamp) {
+      setErrorMessage('Too many signups, please try again in a little while');
+      setShowError(true);
+      return;
+    }
+
+    localStorage.setItem('loops-form-timestamp', timestamp.toString());
+    setIsSubmitting(true);
+
+    const formBody = `userGroup=&mailingLists=&email=${encodeURIComponent(email)}`;
+
+    try {
+      const res = await fetch('https://app.loops.so/api/newsletter-form/cmhzhsa9t03cfyi0i5d1u7aaa', {
+        method: 'POST',
+        body: formBody,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      });
+
+      if (res.ok) {
+        setShowSuccess(true);
+        setEmail('');
+      } else {
+        const data = await res.json();
+        setErrorMessage(data.message || res.statusText);
+        setShowError(true);
+      }
+    } catch (error) {
+      if (error instanceof Error && error.message === 'Failed to fetch') {
+        setErrorMessage('Too many signups, please try again in a little while');
+      } else if (error instanceof Error && error.message) {
+        setErrorMessage(error.message);
+      }
+      setShowError(true);
+      localStorage.setItem('loops-form-timestamp', '');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const resetForm = () => {
+    setShowSuccess(false);
+    setShowError(false);
+    setErrorMessage('Oops! Something went wrong, please try again');
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="container">
+      <div className="background-gradient"></div>
+      
+      <motion.div 
+        className="content"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h1 className="headline">
+            End the streaming
+            <br />
+            <span className="highlight">nightmare</span>
+            <br />
+            for good
+          </h1>
+        </motion.div>
+
+        <motion.p 
+          className="subheading"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          Something better is coming. Be the first to know.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="form-container"
+        >
+          {!showSuccess && !showError && (
+            <form onSubmit={handleSubmit} className="waitlist-form">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                required
+                disabled={isSubmitting}
+                className="email-input"
+              />
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                className="submit-button"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {isSubmitting ? 'Joining...' : 'Join Waitlist'}
+              </motion.button>
+            </form>
+          )}
+
+          {showSuccess && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="success-message"
+            >
+              <div className="success-icon">✓</div>
+              <p>You're on the list!</p>
+              <p className="success-subtext">We'll be in touch soon.</p>
+              <button onClick={resetForm} className="back-button">
+                ← Back
+              </button>
+            </motion.div>
+          )}
+
+          {showError && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="error-message"
+            >
+              <p>{errorMessage}</p>
+              <button onClick={resetForm} className="back-button">
+                ← Try again
+              </button>
+            </motion.div>
+          )}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="footer-text"
+        >
+          No spam. Unsubscribe anytime.
+        </motion.div>
+      </motion.div>
+
+      <div className="grain"></div>
+    </div>
+  );
 }
 
-export default App
+export default App;
