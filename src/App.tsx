@@ -12,7 +12,6 @@ function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Rate limiting check
     const time = new Date();
     const timestamp = time.valueOf();
     const previousTimestamp = localStorage.getItem('loops-form-timestamp');
@@ -66,49 +65,35 @@ function App() {
 
   return (
     <div className="container">
-      <div className="background-gradient"></div>
-      
       <motion.div 
         className="content"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.6 }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <h1 className="headline">
-            End the streaming
-            <br />
-            <span className="highlight">nightmare</span>
-            <br />
-            for good
+            End the streaming <span className="highlight">nightmare</span> for good
           </h1>
         </motion.div>
 
         <motion.p 
           className="subheading"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-No monthly bills. No cancellations. Buy access for a day. Binge anything.        </motion.p>
+          Something better is coming.
+        </motion.p>
 
         <motion.div
-          className="incentive-badge"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          Early users get discounted day-passes
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="form-container"
         >
           {!showSuccess && !showError && (
@@ -136,13 +121,11 @@ No monthly bills. No cancellations. Buy access for a day. Binge anything.       
 
           {showSuccess && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="success-message"
             >
-              <div className="success-icon">✓</div>
-              <p>You're on the list!</p>
-              <p className="success-subtext">We'll be in touch soon.</p>
+              <p>You're on the list.</p>
               <button onClick={resetForm} className="back-button">
                 ← Back
               </button>
@@ -151,7 +134,7 @@ No monthly bills. No cancellations. Buy access for a day. Binge anything.       
 
           {showError && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="error-message"
             >
@@ -166,14 +149,12 @@ No monthly bills. No cancellations. Buy access for a day. Binge anything.       
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="footer-text"
         >
-          No spam. Unsubscribe anytime.
+          Early access • Discounted day-passes
         </motion.div>
       </motion.div>
-
-      <div className="grain"></div>
     </div>
   );
 }
