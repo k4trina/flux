@@ -28,9 +28,9 @@ body {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(239, 68, 68, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
   animation: gradient-shift 20s ease infinite;
 }
 
@@ -70,7 +70,7 @@ body {
 }
 
 .highlight {
-  background: linear-gradient(135deg, #dc2626 0%, #f97316 50%, #fbbf24 100%);
+  background: linear-gradient(135deg, #06b6d4 0%, #fbbf24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,14 +100,14 @@ body {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(220, 38, 38, 0.3);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.3);
   border-radius: 50px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(251, 191, 36, 0.95);
   font-size: 0.95rem;
   font-weight: 500;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
 }
 
 .form-container {
@@ -141,8 +141,8 @@ body {
 
 .email-input:focus {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(220, 38, 38, 0.5);
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
 }
 
 .email-input:disabled {
@@ -156,7 +156,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
+  background: linear-gradient(135deg, #0891b2 0%, #f59e0b 100%);
   border: none;
   border-radius: 12px;
   color: #fff;
@@ -170,7 +170,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #ef4444 0%, #fb923c 100%);
+  background: linear-gradient(135deg, #06b6d4 0%, #fbbf24 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -203,7 +203,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #0891b2 0%, #14b8a6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
