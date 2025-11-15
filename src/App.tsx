@@ -94,8 +94,16 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Something better is coming. Be the first to know.
-        </motion.p>
+No monthly bills. No cancellations. Buy access for a day. Binge anything.        </motion.p>
+
+        <motion.div
+          className="incentive-badge"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          Early users get discounted day-passes
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
