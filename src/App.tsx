@@ -87,7 +87,7 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Flux lets you activate a 24-hour pass to any major streaming service. Binge guilt-free. Cancel nothing.
+          Flux lets you activate a 24-hour pass to any major streaming service. Binge commitment-free. Cancel nothing.
         </motion.p>
 
         <motion.div
